@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "role": "full-workflow",
+  "source_commit_before_local_preparation": "12c3953cf076b62df5248b8f953834e45882c120",
+  "same_team_project": true,
+  "historical_nanotron_commit": null,
+  "historical_resolved_packages": null,
+  "actual_consumed_tokens": null,
+  "tokenizer_revision": null,
+  "tensor_transfer_and_numerical_validation": "not performed",
+  "files": [
+    {
+      "path": "config/config_stage1.yaml",
+      "sha256": "9eff9d1f77a67c2638d4bc550a7ababc22532ca7fa6f5b422bfd22153572dabb",
+      "size": 3925
+    },
+    {
+      "path": "config/config_stage2.yaml",
+      "sha256": "24da9e0c3ef1e53f499e5549f39950f2eae3f04cd957fb23b17cc6e7f017ee1b",
+      "size": 3501
+    },
+    {
+      "path": "config/config_stage3.yaml",
+      "sha256": "19fd9681d98bb9f8cfee9863c4212bd39ad9a46733668d43664386c348777d69",
+      "size": 2965
+    },
+    {
+      "path": "config/sft_stage3_smoltalk.yaml",
+      "sha256": "8b72d03167b3331fe61b2a3766e6732014f227d7dbda591147725f476fca0952",
+      "size": 3280
+    },
+    {
+      "path": "docs/paper/Report.pdf",
+      "sha256": "0a196c5ccaab4f227954749b880b7ed1845c2a5df77cba423992168cd320ffe0",
+      "size": 3027359
+    }
+  ],
+  "lfs_expected": {
+    "unique_objects": 388,
+    "logical_bytes": 1968528560
+  },
+  "limitations": [
+    "source/dependency pins unresolved",
+    "token totals inconsistent",
+    "custom SFT tokenizer external",
+    "weight/tokenizer/data licensing review incomplete"
+  ]
+}

@@ -33,7 +33,8 @@ export LD_LIBRARY_PATH="$GCC_HOME/lib64:$LD_LIBRARY_PATH"
 
 source /leonardo_scratch/large/userexternal/mpeppas0/venvs/nanotron_env/bin/activate
 
-export WANDB_API_KEY="[REDACTED_EXPOSED_CREDENTIAL]"
+# Offline jobs do not need a key. For an explicitly online run, supply
+# WANDB_API_KEY through the scheduler environment or a private secret store.
 export WANDB_PROJECT="pretrain_stage1"
 export WANDB_NAME="stage1-run-$(date +%Y%m%d_%H%M)"
 export WANDB_MODE="offline"

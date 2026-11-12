@@ -1,3 +1,5 @@
+# Adapted from Hugging Face Nanotron run_train.py (Apache-2.0).
+# Upstream revision and local change provenance: docs/PROVENANCE.md.
 """
 Nanotron training script.
 

@@ -1442,7 +1442,7 @@ NTUA-Llama_500M_Nanotron_Full/
 |   |-- run_data_prep_stage2.sbatch
 |   |-- run_data_prep_stage2.sbatch.save
 |   |-- run_sft_smoke_hf.sbatch
-|   |-- run_smoke_checknigg.sbatch
+|   |-- run_smoke_checkpoint.sbatch
 |   |-- run_stage1.sbatch
 |   |-- run_stage1_dokimi.sbatch
 |   |-- run_stage2.sbatch
