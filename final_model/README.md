@@ -1,21 +1,10 @@
-# Final Model Folder
+# Selected historical model-only exports
 
-This folder stores selected historical model-only exports.
+- [stage3_12000_modelonly/](stage3_12000_modelonly/): selected pre-SFT checkpoint, Stage-3 step 12,000.
+- [sft_stage3_smoltalk_run1_5000_modelonly/](sft_stage3_smoltalk_run1_5000_modelonly/): selected SFT checkpoint, step 5,000.
 
-## Included artifacts
+Each directory contains configuration/checkpoint metadata and 194 Git LFS-tracked safetensors shards. A smudge-disabled clone contains pointers rather than tensor payloads. The exports omit full optimizer/scheduler state and are not a qualified Transformers `from_pretrained` package.
 
-- `stage3_12000_modelonly/`: Stage 3 bridge baseline export
-- `sft_stage3_smoltalk_run1_5000_modelonly/`: final SFT export
+The [12 November 2026 artifact record](../docs/ARTIFACT_VERIFICATION.md) reports verified companion downloads and identical pointers here; this repository's endpoint returned missing objects during that check. Obtain artifacts through the [companion repository](https://github.com/ntua-el21026/ntua-llama-500m-artifacts) after checking current access. No object availability or payload download was rechecked for this documentation update.
 
-These directories are intended for reproducible comparison between pre-SFT and post-SFT checkpoints.
-
-Model files are stored in sharded weight format (e.g., `.safetensors`) together with configuration metadata.
-
-## Availability and compatibility
-
-The 12 November 2026 audit found these 388 LFS objects unavailable at the Full
-endpoint. The [compact release](https://github.com/ntua-el21026/NTUA-Llama_500M_Nanotron)
-returned download metadata for the same OIDs. Neither preparation nor the audit
-validated transfers or tensors. These are model-only Nanotron exports; compatible
-conversion/runtime and the exact tokenizer are required before inference. See
-[MODEL_CARD.md](../docs/MODEL_CARD.md) for the selected checkpoints and limitations.
+Read the [model card](../docs/MODEL_CARD.md) and [conversion caveats](../docs/REPRODUCING.md#model-only-conversion) before use. The exact SFT tokenizer is missing, and exporter/configuration differences remain unresolved. Preserve the selected files and their provenance; a successful transfer alone does not validate inference or reported scores.

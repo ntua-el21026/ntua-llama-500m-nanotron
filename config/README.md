@@ -15,4 +15,4 @@ This folder contains the canonical YAML configurations for training and SFT.
 - `*_smoke*.yaml`, `smoke_*.yaml`: smoke-test and checkpoint-resume/save configs
 - `config_tiny_llama.yaml`, `config_stage1_16L.yaml`: alternative experiment variants
 
-Use these files as source-of-truth for reproducible runs.
+These files preserve the declared experiment configurations. They contain historical cluster paths and do not pin the complete runtime, tokenizer or data revisions. Use the [reproduction guide](../docs/REPRODUCING.md) to interpret schedules and recover missing inputs; adapt paths in a separate working copy.
