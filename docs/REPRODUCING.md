@@ -11,13 +11,13 @@ bash -n slurm/run_smoke_checkpoint.sbatch
 python3 -m compileall -q scripts
 ```
 
-Compilation checks Python syntax only and does not import PyTorch or Nanotron. The model directories currently contain LFS pointers; reading a pointer is not reading a tensor. The [companion artifacts](https://github.com/ntua-el21026/ntua-llama-500m-artifacts) have a preserved [12 November 2026 byte-verification record](ARTIFACT_VERIFICATION.md). That historical check downloaded all 388 objects and matched their hashes/sizes; this documentation pass does not repeat the transfer or qualify inference.
+Compilation checks Python syntax only and does not import PyTorch or Nanotron. The model directories currently contain LFS pointers; reading a pointer is not reading a tensor. The [companion artifacts](https://github.com/ntua-el21026/ntua-llama-500m-artifacts) have a preserved [12 November 2026 byte-verification record](ARTIFACT_VERIFICATION.md). That historical check downloaded all 388 objects and matched their hashes/sizes.
 
 ## Historical training environment
 
-The Slurm templates target Leonardo, with four data-parallel workers and site-specific modules/paths. `scripts/prepare_env.sh` is a historical installer: it uses mutable package releases and Nanotron HEAD, and installs PyTorch/CUDA-dependent extensions. It is not a lockfile or a portable workstation setup. Read it before using it; this preparation did not run it or reconstruct the historical package versions. The exact Nanotron source revision and resolved runtime must be recovered from the original environment before claiming replay.
+The Slurm templates target Leonardo, with four data-parallel workers and site-specific modules/paths. `scripts/prepare_env.sh` is a historical installer: it uses mutable package releases and Nanotron HEAD, and installs PyTorch/CUDA-dependent extensions. It is not a lockfile or a portable workstation setup. Read it before using it. The exact Nanotron source revision and resolved runtime must be recovered from the original environment before claiming replay.
 
-Use an allocated, compatible managed GPU environment. Record Python, PyTorch, CUDA, GPU/driver, compiler, Nanotron commit and package versions before setup changes. Reuse a compatible provider PyTorch stack. Record any conflict instead of assuming the old module names define a working environment. Install additional packages only after an explicit compatible, pinned requirements manifest has been established. No historical package pins are invented here.
+Use an allocated, compatible managed GPU environment. Record Python, PyTorch, CUDA, GPU/driver, compiler, Nanotron commit and package versions before setup changes. Reuse a compatible provider PyTorch stack. Record any conflict instead of assuming the old module names define a working environment. Install additional packages only after an explicit compatible, pinned requirements manifest has been established.
 
 ## Declared configurations
 
@@ -35,7 +35,7 @@ Stage-3 initialization loads Stage-2 weights without optimizer/scheduler state. 
 ## Reproduction order
 
 1. Read `config/config_stage1.yaml`, `config/config_stage2.yaml`, `config/config_stage3.yaml` and `config/sft_stage3_smoltalk.yaml`. Keep the originals as evidence; create local copies for current paths, allocations and output directories.
-2. Obtain authorized tokenizer and dataset versions. Pretraining references `meta-llama/Meta-Llama-3-8B` without a frozen tokenizer revision; SFT references a custom local tokenizer with a chat template. Recover and hash that exact tokenizer rather than substituting a different template.
+2. Obtain the required tokenizer and dataset versions. Pretraining references `meta-llama/Meta-Llama-3-8B` without a frozen tokenizer revision; SFT references a custom local tokenizer with a chat template. Recover and hash that exact tokenizer rather than substituting a different template.
 3. Recover input data/cache/checkpoint fingerprints and actual consumed-token logs for each stage. Full training checkpoints, optimizer state, caches and Stage-1 evaluation results are incomplete in Git. Model-only exports do not provide optimizer-state resume.
 4. Resolve the Nanotron revision and local patches described in [PROVENANCE.md](PROVENANCE.md). Use a separate smoke configuration to establish numerical compatibility before a training run. No job is launched by these instructions automatically.
 5. For evaluation, inspect `scripts/stage3_prefill_cache.sh`, `scripts/stage3_eval_offline.sh`, and the corresponding stage files before use. Prefill is a separate dataset/network setup step; offline evaluation depends on those external caches and correct paths. Preserve task suite, split, prompt, normalization, selected checkpoint, seed and precision.
@@ -62,8 +62,6 @@ STAGE3_STEPS="12000" STAGE3_INCLUDE_STAGE2_BRIDGE=0 bash scripts/stage3_eval_off
 These commands perform real preparation/submission when run in the intended environment. The second invokes `sbatch`; it is not a local static check. The launcher reads `config/config_stage3.yaml`, expects checkpoints below `$SCRATCH/ckpts/stage3`, and requires `config.yaml`, `model_config.json` and `model/` in each selected checkpoint. Its default selection is steps 2000–12000 plus a Stage-2 bridge; the example narrows it explicitly.
 
 `SCRATCH` must be defined. The backend also needs `NANOTRON_ROOT`; tokenizer/length and scoring batch-size controls include `TOKENIZER_NAME_OR_PATH`, `SEQ_LEN` and `EVAL_BATCH_SIZE`. Prefill supports `EVAL_DATA_DIR`, `EVAL_RESULTS_DIR` and `EVAL_LOG_DIR`, while the submit script constructs its own stage directories under `$SCRATCH/evaluation_results/stage3`. Keep both steps aligned. Stages 1, 2 and 4 have analogous scripts, but their suites and checkpoint defaults differ; inspect each rather than assuming identical scoring.
-
-No training, prefill, submission or numerical evaluation command above was executed for this documentation update.
 
 ## Model-only conversion
 

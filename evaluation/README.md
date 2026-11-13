@@ -34,4 +34,4 @@ Primary output files per checkpoint are:
 
 The runners orchestrate task preparation and scoring backends. Perplexity slices, conditional-likelihood QA and SFT-native checks use stage-specific suites; matching a metric name alone does not establish a comparable evaluation protocol. [DETAILS.md](DETAILS.md) retains the detailed pipeline description, while the [model card](../docs/MODEL_CARD.md) qualifies reported results.
 
-Read the [reproduction guide](../docs/REPRODUCING.md#entry-points-after-environment-qualification) for cache setup and checkpoint/path requirements. Offline wrappers submit Slurm jobs; they do not make a workstation self-contained. No numerical evaluator was run for this documentation update.
+Read the [reproduction guide](../docs/REPRODUCING.md#entry-points-after-environment-qualification) for cache setup and checkpoint/path requirements. Offline wrappers submit Slurm jobs; they do not make a workstation self-contained.

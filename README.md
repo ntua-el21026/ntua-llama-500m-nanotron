@@ -2,7 +2,7 @@
 
 Training, fine-tuning and evaluation workflow for the NTUA ECE **Pattern Recognition** course, Winter 2025–2026. The project studies a staged curriculum for a LLaMA-style language model described as 500M parameters, implemented with Hugging Face Nanotron and Leonardo Slurm jobs.
 
-The report credits **Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos and Giannis Chatzigeorgiadis**. This is shared Team 12 work; individual implementation responsibilities have not been reconstructed from the imported history.
+The report credits **Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos and Giannis Chatzigeorgiadis**.
 
 ## Start here
 
@@ -34,18 +34,12 @@ GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/ntua-el21026/ntua-llama-500m-
 cd ntua-llama-500m-nanotron
 ```
 
-This permits source/report review without downloading weights or installing a numerical stack. Training requires a compatible allocated GPU environment, the actual Nanotron revision and local patches, authorized datasets/tokenizers, recovered input caches and adapted cluster paths. There is no frozen, resolved dependency environment. Read [REPRODUCING.md](docs/REPRODUCING.md) before using historical installers or job templates.
+This permits source/report review without downloading weights or installing a numerical stack. Training requires a compatible allocated GPU environment, the actual Nanotron revision and local patches, the required datasets/tokenizers, recovered input caches and adapted cluster paths. There is no frozen, resolved dependency environment. Read [REPRODUCING.md](docs/REPRODUCING.md) before using historical installers or job templates.
 
-The smoke checkpoint template [run_smoke_checkpoint.sbatch](slurm/run_smoke_checkpoint.sbatch) retains offline W&B use. Online use requires an externally supplied `WANDB_API_KEY`; never embed credentials in scheduler files. A previously committed key requires owner-side revocation/rotation; removing it from the current file does not erase history. This documentation update did not reopen or perform credential operations.
+The smoke checkpoint template [run_smoke_checkpoint.sbatch](slurm/run_smoke_checkpoint.sbatch) retains offline W&B use. Online use requires an externally supplied `WANDB_API_KEY`.
 
 ## Evidence and limitations
 
-The [12 November 2026 verification record](docs/ARTIFACT_VERIFICATION.md) reports that all 388 companion-repository LFS objects, totaling 1,968,528,560 bytes, were downloaded and matched their SHA-256/size pointers. Their safetensors structure was checked, and this repository's pointers matched. Its own LFS endpoint returned missing-object errors in that historical check. That record is preserved; the present documentation pass did not repeat downloads or infer current endpoint availability.
+The [12 November 2026 verification record](docs/ARTIFACT_VERIFICATION.md) reports that all 388 companion-repository LFS objects, totaling 1,968,528,560 bytes, were downloaded and matched their SHA-256/size pointers. Their safetensors structure was checked, and this repository's pointers matched. Its own LFS endpoint returned missing-object errors in that historical check.
 
 Byte identity does not qualify conversion, inference or reported benchmarks. The exact custom SFT tokenizer is absent; upstream/dependency pins remain unresolved; the exporter and retained configurations disagree on RoPE/BOS/EOS settings. The report's 22B/23.13B token totals also require reconciliation. Evaluation protocols differ between stages, and the retained 50-prompt SFT-native result includes 12% all-checks pass and 0% JSON validity. See the model card before comparing scores.
-
-This update performed static documentation/source checks only. It introduces no new training, evaluation or performance claim and preserves original configs, reports, results and checkpoints.
-
-## License and attribution
-
-[MIT](LICENSE) applies to original team contributions within the contributors' rights. Adapted Nanotron code has separate [Apache-2.0 material](LICENSES/Apache-2.0.txt). Tokenizers, datasets, pretrained assets and model weights retain their own access and redistribution requirements; the project license does not establish a blanket grant. [PROVENANCE.md](docs/PROVENANCE.md) records remaining source and asset questions.

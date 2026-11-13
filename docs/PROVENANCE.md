@@ -1,18 +1,18 @@
 # Source and asset provenance
 
-The report credits Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos, and Giannis Chatzigeorgiadis. Original team contributions are offered under the root MIT license to the extent the contributors hold the relevant rights. Contribution-level ownership and teammate agreement should be documented before a consolidated release.
+The report credits Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos, and Giannis Chatzigeorgiadis.
 
 ## Adapted training source
 
-`scripts/run_train.py` adapts the [Hugging Face Nanotron training script](https://github.com/huggingface/nanotron/blob/main/run_train.py). Nanotron is distributed under [Apache-2.0](https://github.com/huggingface/nanotron/blob/main/LICENSE); a local copy is retained in [LICENSES/Apache-2.0.txt](../LICENSES/Apache-2.0.txt). The adaptation notice was added during portfolio preparation. Local code includes project-specific dataset/SFT integration and compatibility edits; an exhaustive upstream patch comparison is pending.
+`scripts/run_train.py` adapts the [Hugging Face Nanotron training script](https://github.com/huggingface/nanotron/blob/main/run_train.py). Nanotron is distributed under [Apache-2.0](https://github.com/huggingface/nanotron/blob/main/LICENSE); a local copy is retained in [LICENSES/Apache-2.0.txt](../LICENSES/Apache-2.0.txt). Local code includes project-specific dataset/SFT integration and compatibility edits.
 
-The exact upstream commit was not recorded by the historical `pip install git+https://github.com/huggingface/nanotron.git` command. The current upstream branch link identifies the project, not the revision used for the experiment. Recover that revision and any original copyright/NOTICE material from the historical environment before asserting complete provenance or a reproducible source pin. The added attribution does not certify that this unresolved review is complete.
+The exact upstream commit was not recorded by the historical `pip install git+https://github.com/huggingface/nanotron.git` command. The current upstream branch link identifies the project, not the revision used for the experiment. Recover the historical revision and local patches to reproduce the training source.
 
 ## Model, tokenizer and data
 
 The two selected artifacts are `stage3_12000_modelonly` and `sft_stage3_smoltalk_run1_5000_modelonly`. Their pointer OIDs identify expected tensor-file content. The earlier pointer-only preparation is recorded in `release-provenance.json`; the later [12 November byte-verification record](ARTIFACT_VERIFICATION.md) documents companion downloads, SHA-256/size and serialization checks. Both records are retained unchanged. Neither establishes numerical execution or complete training provenance. Export/config/report hashes remain in `release-provenance.json`.
 
-Configurations reference the Meta Llama 3 tokenizer and an external custom SFT tokenizer. Apply the tokenizer's original access/license conditions; the project's MIT notice does not replace them. Dataset access, redistribution rights and exact revisions must be recorded separately. Model-weight license scope has not been independently established from these configs alone. Do not infer tokenizer/model/dataset rights from framework licensing.
+Configurations reference the Meta Llama 3 tokenizer and an external custom SFT tokenizer. Exact tokenizer and dataset revisions are required for reproduction.
 
 ## Preserved evidence
 
