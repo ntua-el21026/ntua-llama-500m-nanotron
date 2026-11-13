@@ -2,7 +2,7 @@
 
 Training, fine-tuning and evaluation workflow for the NTUA ECE **Pattern Recognition** course, Winter 2025–2026. The project studies a staged curriculum for a LLaMA-style language model described as 500M parameters, implemented with Hugging Face Nanotron and Leonardo Slurm jobs.
 
-The report credits **Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos and Giannis Chatzigeorgiadis**.
+The report credits **Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail Athanasios Peppas, Andreas Saounatsos and Giannis Chatzigeorgiadis**.
 
 ## Start here
 

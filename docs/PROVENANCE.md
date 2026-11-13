@@ -1,6 +1,6 @@
 # Source and asset provenance
 
-The report credits Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail-Athanasios Peppas, Andreas Saounatsos, and Giannis Chatzigeorgiadis.
+The report credits Evaggelos Asitzoglou, Panagiotis Avgerinos, Michail Athanasios Peppas, Andreas Saounatsos, and Giannis Chatzigeorgiadis.
 
 ## Adapted training source
 
