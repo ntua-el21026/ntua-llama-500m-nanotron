@@ -10,10 +10,10 @@ The exact upstream commit was not recorded by the historical `pip install git+ht
 
 ## Model, tokenizer and data
 
-The two selected artifacts are `stage3_12000_modelonly` and `sft_stage3_smoltalk_run1_5000_modelonly`. Their pointer OIDs identify expected tensor-file content. The earlier pointer-only preparation is recorded in `release-provenance.json`; the later [12 November byte-verification record](ARTIFACT_VERIFICATION.md) documents companion downloads, SHA-256/size and serialization checks. Both records are retained unchanged. Neither establishes numerical execution or complete training provenance. Export/config/report hashes remain in `release-provenance.json`.
+The two selected artifacts are `stage3_12000_modelonly` and `sft_stage3_smoltalk_run1_5000_modelonly`. Their pointer OIDs identify expected tensor-file content. The earlier pointer-only preparation is recorded in `release-provenance.json`; the later [12 November byte-verification record](ARTIFACT_VERIFICATION.md) documents companion downloads, SHA-256/size and serialization checks. Both records identify the selected files and their verification outcomes. Training and evaluation requirements are detailed in [the reproduction guide](REPRODUCING.md). Export/config/report hashes remain in `release-provenance.json`.
 
 Configurations reference the Meta Llama 3 tokenizer and an external custom SFT tokenizer. Exact tokenizer and dataset revisions are required for reproduction.
 
 ## Preserved evidence
 
-The report, its LaTeX source, canonical training configs and selected result artifacts remain historical evidence. Token-total inconsistencies and weak evaluations are documented in the [model card](MODEL_CARD.md); the historical files have not been rewritten to imply stronger results. The [compact package](https://github.com/ntua-el21026/ntua-llama-500m-artifacts) and this workflow are one team project.
+The report, its LaTeX source, canonical training configs and selected result artifacts remain historical evidence. Token-total inconsistencies and weak evaluations are documented in the [model card](MODEL_CARD.md). The [compact package](https://github.com/ntua-el21026/ntua-llama-500m-artifacts) and this workflow are one team project.

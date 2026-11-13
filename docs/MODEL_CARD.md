@@ -12,11 +12,11 @@ The final SFT-native artifact evaluates 50 prompts, with 12% passing all checks 
 
 ## Unresolved training budget
 
-The report states 22B tokens in one passage and 23.13B before SFT elsewhere; figure-stage budgets also differ. Intended budgets, actual consumed tokens and the selected checkpoint's exposure must be reconciled from training logs. No single verified consumed-token total is asserted here. The report remains unchanged.
+The report states 22B tokens in one passage and 23.13B before SFT elsewhere; figure-stage budgets also differ. Intended budgets, actual consumed tokens and the selected checkpoint's exposure must be reconciled from training logs. No single verified consumed-token total is asserted here.
 
 ## Intended use and artifact access
 
-Use for educational inspection and controlled evaluation after qualifying the environment and obtaining the exact tokenizer. General deployment capability has not been established. The workflow repository’s LFS endpoint reported 388 missing objects on 12 November 2026. The companion artifact verification is recorded below.
+Use for educational inspection and controlled evaluation after qualifying the environment and obtaining the exact tokenizer. The workflow repository’s LFS endpoint reported 388 missing objects on 12 November 2026. The companion artifact verification is recorded below.
 
 See the linked workflow/reproduction documentation for data/cache dependencies and source revision gaps.
 

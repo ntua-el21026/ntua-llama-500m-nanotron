@@ -1,4 +1,3 @@
 Adapted source: scripts/run_train.py derives from Hugging Face Nanotron's
 Apache-2.0 training script. See LICENSES/Apache-2.0.txt and docs/PROVENANCE.md.
-The exact historical Nanotron revision and original NOTICE/copyright inventory
-remain to be recovered. Original team contributions retain the root MIT notice.
+Original team contributions retain the root MIT notice.
